@@ -102,17 +102,3 @@ LLM은 선택적으로 사용되며, **온디바이스 환경(Llama-3.2-1B-Instr
 
 ---
 
----
-
-## 요구사항
-- Python 3.12.11
-- OS: Ubuntu Linux 22.04
-
-## 설치
-```bash
-git clone https://github.com/krnooby/CTDMate.git
-cd CTDMATE
-python -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt
-cp .env .env.example
-# CTDMate
