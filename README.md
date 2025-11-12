@@ -241,11 +241,11 @@ PDF 파일을 업로드하면 ICH 규정 준수를 검증합니다.
 
   ### 🎥 실행 데모
 
-  <video src="./assets/demo.mp4" controls width="100%">
-    시연 영상
-  </video>
+ **[📹 시연 영상 다운로드(34MB)](https://github.com/xodus123/CTDMate/raw/main/assets/demo.mp4)**
 
-  > 📹 **실제 시연 영상** - 파일 업로드부터 CTD 문서 생성까지 전 과정
+  _클릭하여 영상 다운로드 후 재생하세요_
+
+  > Excel 업로드부터 CTD 문서 생성까지 전 과정
 
 **주요 화면:**
 - PDF 문서 파싱
