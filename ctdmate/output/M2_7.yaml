@@ -1,0 +1,85 @@
+```yaml
+References: []
+2.7.1.biopharmaceutics:
+  narrative: "TM-5는 국소 용액으로 생물학적동등성 및 용출-흡수 시험이 적용되지 않음. 점도 및 도포면적 표준화, 잔여량 평가를 통해 제형 특성 확인 [CIT-1]."
+2.7.2.clinical_pharmacology:
+  tables:
+    exposure_overview:
+      columns: ["Study", "Regimen", "N", "Cmax(ng/mL) median", "AUC(ng·h/mL) median", "AccumulationRatio", "Notes"]
+      rows:
+        - - "P1-MAD"
+          - "1 mL BID, 14 d"
+          - "32"
+          - "1.8"
+          - "9.6"
+          - "1.2"
+          - "Low systemic exposure"
+  narrative: "TM-5의 전신노출은 낮으며, MAD 연구에서 축적계수 1.2로 제한적 축적 확인. 음식효과 없음 [CIT-2]."
+2.7.3.efficacy:
+  tables:
+    efficacy_by_study:
+      columns: ["Study", "Population", "N (TM-5/Placebo)", "Primary Endpoint", "TM-5 Δ vs PBO", "p-value", "Key Secondary"]
+      rows:
+        - - "P2-24W"
+          - "Male AGA"
+          - "120/120"
+          - "ΔTAHC 24w"
+          - "+17.9 (/cm²)"
+          - "<0.001"
+          - "Photo response 62% vs 21%"
+        - - "P3-48W"
+          - "Male/Female AGA"
+          - "390/390"
+          - "ΔTAHC 48w"
+          - "+23.4 (/cm²)"
+          - "<0.001"
+          - "Photo response 68% vs 26%"
+  narrative: "TM-5는 12주부터 유의한 TAHC 개선 효과 확인. 24–48주 간 지속적 개선 및 사진평가 개선률 68% 달성 [CIT-3]."
+2.7.4.safety:
+  tables:
+    ae_by_soc:
+      columns: ["SOC", "TM-5 n/N(%)", "PBO n/N(%)", "Risk Difference(%)", "Severity", "Action Taken"]
+      rows:
+        - - "Skin disorders (erythema)"
+          - "45/140 (32.1)"
+          - "37/128 (28.9)"
+          - "+3.2"
+          - "Mild"
+          - "Continue/Topical care"
+        - - "Pruritus"
+          - "18/140 (12.9)"
+          - "12/128 (9.4)"
+          - "+3.5"
+          - "Mild"
+          - "Continue or interrupt"
+        - - "Headache"
+          - "10/140 (7.1)"
+          - "8/128 (6.3)"
+          - "+0.8"
+          - "Mild"
+          - "None"
+    discontinuations:
+      columns: ["Study", "Reason", "TM-5 n(%)", "PBO n(%)"]
+      rows:
+        - - "P2"
+          - "Local irritation"
+          - "3 (2.5)"
+          - "1 (0.8)"
+        - - "P3"
+          - "Local irritation"
+          - "16 (4.1)"
+          - "11 (2.9)"
+  narrative: "TM-5의 안전성은 경도 국소반응(홍반, 가려움)이 주를 이루며, 약물관련 중대한 이상사건 없음. 테스토스테론 및 DHT 수치 변화 없음 [CIT-4]."
+References:
+  - {doc: "TM_5_Phase1", section: "1.1 디자인", page: "NEED_INPUT", para_id: "NEED_INPUT"}
+  - {doc: "TM_5_Phase1", section: "4.2 PK", page: "NEED_INPUT", para_id: "NEED_INPUT"}
+  - {doc: "TM_5_Phase3", section: "4.1 1차 평가변수", page: "NEED_INPUT", para_id: "NEED_INPUT"}
+  - {doc: "TM_5_Phase3", section: "4.3 안전성", page: "NEED_INPUT", para_id: "NEED_INPUT"}
+
+
+### 설명:
+1. **CTD M2.7 스켈레톤 준수**: 각 섹션(2.7.1–2.7.4)에 대해 표 및 서술문 포함.
+2. **인용 표기**: 각 핵심 문장에 [CIT-1]–[CIT-4] 추가.
+3. **References**: 제공된 문서(TM_5_Phase1, TM_5_Phase3 등)와 섹션 정보를 기반으로 구성. 페이지 및 단락 ID는 불명확하여 "NEED_INPUT" 처리.
+4. **불명확한 값**: 페이지 및 단락 ID는 입력되지 않아 "NEED_INPUT"으로 표기.
+```

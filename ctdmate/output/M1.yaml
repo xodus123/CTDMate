@@ -1,0 +1,53 @@
+```yaml
+CTD_M1_행정_라벨링_KR:
+  신청인_및_제조_정보:
+    신청인_법인: 메타파마 주식회사 (MetaPharma Co., Ltd.) [CIT-1]
+    주소: 서울특별시 송파구 헬스테크로 101, 12층 (우)05555 [CIT-1]
+    연락: RA팀 02-1234-5678, ra@metapharma.co.kr [CIT-1]
+    제조소:
+      - 원료: MetaChem Co., 45 Synthon Rd., Osong, KR [CIT-1]
+      - 완제: MetaFill Plant, 200 Pharma Ave., Hwaseong, KR [CIT-1]
+    시험소_QC: MetaQC Center, 88 Assay Rd., Daejeon, KR [CIT-1]
+    GMP_증빙: 원료/완제 GMP 적합 판정서 첨부(사본) [CIT-1]
+  제품_기본_정보:
+    제품명_한글: TM-5 용액 [CIT-2]
+    일반명: TM5-API 국소용 용액 [CIT-2]
+    제형_투여경로: 용액 / 국소(두피) [CIT-2]
+    강도: 5 mg/mL [CIT-2]
+    포장단위: 60 mL/병, 폴리백 1개 동봉, 제품설명서 1부 [CIT-2]
+    용기_밀폐: HDPE 병 + PP 캡 + 방울마개(점적형), 차광 골판 상자 [CIT-2]
+    보관조건: 25°C, 기밀용기, 동결 금지 [CIT-2]
+    유효기간_제안: 36개월 [CIT-2]
+  외부포장_표시:
+    효능_효과: 안드로겐성 탈모의 발모 촉진 [CIT-3]
+    용법_용량: 하루 2회, 1회 1 mL를 탈모 부위에 점적 후 부드럽게 도포 [CIT-3]
+    보관: 25°C, 기밀용기, 어린이 손이 닿지 않는 곳 [CIT-3]
+    경고: 눈, 점막, 상처부위 접촉 금지. 자극 지속 시 사용 중지 후 의사 상담 [CIT-3]
+    제조번호_사용기한_제조일자_표기란: 제조번호/사용기한/제조일자 표기란 [CIT-3]
+  내부_라벨_문안:
+    제품명: TM-5 용액 5 mg/mL [CIT-4]
+    용량: 60 mL [CIT-4]
+    Lot_EXP: 라벨 인쇄 [CIT-4]
+    보관: 25°C, 기밀 [CIT-4]
+  의약품설명서_PIL:
+    성분: TM5-API 5 mg/mL, 에탄올, 프로필렌글리콜, 정제수, 보존제(벤잘코늄염화물 0.01%) [CIT-5]
+    효능_효과: 안드로겐성 탈모의 발모 촉진 [CIT-5]
+    용법_용량: 1 mL를 하루 2회 도포. 건조 후 스타일링 [CIT-5]
+    사용상_주의사항: 국소 자극(홍반, 가려움) 발생 가능. 눈에 들어갈 경우 즉시 물로 세척 [CIT-5]
+    이상반응: 대부분 경도 국소 반응. 심한 자극 지속 시 의료진 상담 [CIT-5]
+    보관: 25°C, 기밀용기, 화기 근처 보관 금지 [CIT-5]
+  전자제출_표지_커버레터:
+    품목: TM-5 용액 신약허가 신청(임상/비임상/품질 포함) [CIT-6]
+    제출범위: CTD M1–M5, 본 문서는 M1 문서 중 행정·라벨링 초안 [CIT-6]
+    연락책임자: RA 매니저 김00, 연락처 상동 [CIT-6]
+References:
+  - {doc: "TM_5_Admin_Labeling_KR", section: "[신청인/제조 관련]", page: "1", para_id: "1"}
+  - {doc: "TM_5_Admin_Labeling_KR", section: "[제품 기본 정보]", page: "1", para_id: "2"}
+  - {doc: "TM_5_Admin_Labeling_KR", section: "[외부포장 표시(초안)]", page: "1", para_id: "3"}
+  - {doc: "TM_5_Admin_Labeling_KR", section: "[내부 라벨(병 라벨) 핵심 문안(초안)]", page: "1", para_id: "4"}
+  - {doc: "TM_5_Admin_Labeling_KR", section: "[의약품설명서(요약, PIL)]", page: "1", para_id: "5"}
+  - {doc: "TM_5_Admin_Labeling_KR", section: "[전자제출 표지/커버레터 요지]", page: "1", para_id: "6"}
+
+
+> 📌 **참고**: 제공된 Context가 "N/A"로 명시되어 있으나, 사용자 요청 내 텍스트 데이터를 기반으로 [CIT-1]~[CIT-6] 인용 표기를 적용했습니다. 실제 인용이 필요한 경우 Context를 명시해 주세요.
+```

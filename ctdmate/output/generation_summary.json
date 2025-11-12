@@ -1,0 +1,281 @@
+{
+  "validate": {
+    "total_sheets": 10,
+    "validated_sheets": 10,
+    "results": [
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nmeta:\ndocument: 'CTD M2.3 QOS – TM-5 '\nlanguage: ko\nversion: '1.0'\nlast_updated: '2025-09-30'\n2.3.S:\nS.1.1.nomenclature: TM5-API; 화학명 비공개; 일반명 TM5-API\nS.1.2.structure_properties: 백색 결정성 분말, pKa 7.1, logP 2.3, 물에 거의 불용\nS.2.manufacture:\nsites:\n- name: MetaChem Co.\nrole: Drug Substance 제조\n- name: MetaFill Plant\nrole: Drug Product 제조/포장\nprocess_summary: 합성 4단계, 공정관리(반응완결, 잔류용매) 설정, 용매 회수 관리\nS.3.characterisation: 주불순물 A 0.06%, B 0.03%, 유전독성 불순물 미검출(LOD 0.03%)\nS.4.control_of_drug_substance:\nspec_key_points:\n- 확인 HPLC/IR\n- 순도 NLT 99.0%\n- 잔류용매 ICH Q3C 준수\nmethod_validation: 선형성, 정밀성, 특이성 수용기준 충족\nbatch_analysis: 개발 3개 배치 적합\nS.5.reference_standards: 사내 기준물질 설정(순도 99.9%), 보관 -20°C\nS.6.container_closure: 갈색 유리병(DS 보관), PTFE 실링\nS.7.stability:\nconditions:\n- 25°C/60%RH 24개월\n- 40°C/75%RH 6개월\nresults: 함량 99.1→98.2%(24개월), 분해물 증가 미미\nshelf_life_proposal: 36개월\n2.3.P:\nP.1.description_composition:\ndosage_form: 국소용 용액 5 mg/mL\ncomposition_table:\n- component: TM5-API\ntarget: 5 mg/mL\n- component: 에탄올\ntarget: 400 mg/mL\n- component: 프로필렌글리콜\ntarget: 100 mg/mL\n- component: 정제수\ntarget: 잔량\n- component: 벤잘코늄염화물\ntarget: 0.01%\nP.2.pharmaceutical_development:\nCQAs:\n- 함량\n- 미생물 한도\nCPPs:\n- 혼합시간\n- 용제비\ndesign_space: 제한적 탐색 완료(혼합시간/온도)\ncomparability: 파일럿→공업 규모 비교 데이터 적합\nP.3.manufacture:\nprocess_flow: 용해→혼합→여과→충전→포장\nbatch_size: 100 L\nIPCs:\n- pH\n- 비중\n- 함량\nprocess_validation: 3개 상업 규모 배치 유효성 확인 계획\nP.4.control_of_excipients: 약전 등재 품질규격 적용, 보존제 함량 모니터링\nP.5.control_of_drug_product:\nspec_key_points:\n- 함량 95–105%\n- 미생물 10^2 CFU/mL 이하\n- 용제잔류 한도 충족\nmethod_validation: 함량/보존제/미생물 시험법 검증 완료\nbatch_analysis: 개발 3개 배치 적합\nP.6.reference_standards: 함량 정량용 표준품(사내, 추적성 확보)\nP.7.container_closure: HDPE 병 + PP 캡 + 점적기, 차광 외포장\nP.8.stability:\nconditions:\n- 25°C/60%RH 24개월\n- 40°C/75%RH 6개월\nresults: 장기 24개월 98.2%, 가속 6개월 96.5%\nstorage_statement: 25°C 보관, 기밀용기, 동결 금지\nshelf_life: 36개월\nreferences:\nsource_nonclinical: data/input/TM_5_비임상.txt\nsource_quality: data/input/TM_5_비임상.txt; data/input/TM_5_2상.txt; 내부 개발 배치",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_M2_3_QOS",
+        "module": "M2.3"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 임상 3상(장기 유효성/안전성) 최종보고서 요약 (가상)\n버전: 1.0\n작성일: 2025-09-30\n수행기관: CTDMate Demo CRO\n연구코드: TM5-CL-P3\n요약\n남녀 안드로겐성 탈모(AGA) 환자 780명을 대상으로 48주 동안 TM-5 용액(5 mg/mL) 1 mL BID의 유효성과 안전성을 평가하였다. 1차 평가변수(48주 TAHC 변화)에서 TM-5는 위약 대비 +23.4(/cm², 95% CI 19.8–27.0, p<0.001)의 개선을 보였다. 안전성은 대부분 경도 국소반응으로 관리 가능하였으며, 약물관련 중대한 이상사건은 보고되지 않았다.\n1. 연구설계\n- 다국가, 다기관, 무작위, 이중눈가림, 위약대조, 48주\n- 배정: TM-5(n=390) vs 위약(n=390), 1:1\n- 여성 포함: 전체의 28%, 여성 하위분석 사전계획\n- 통계: ANCOVA 및 MMRM 혼합 모델, 견고한 분산 추정\n2. 대상자\n- 포함: 18–60세 남녀, AGA 진단, 안정된 건강상태\n- 제외: 최근 6개월내 관련 치료제 사용, 두피질환/감염\n- ITT 764, PP 712, 안전성 772\n- 베이스라인: 나이 36.1±8.4, 남:여 72:28, TAHC 176.4±26.8(/cm²)\n3. 평가변수\n- 1차: 48주 TAHC 변화(중앙 판독)\n- 2차: 사진평가 개선률, PRO 만족도, 모발 굵기, 치료반응 속도(12/24/36주 분석)\n- 안전성: TEAE/SAE, 국소자극 점수, 호르몬 프로파일(테스토스테론, DHT), 임상검사/ECG\n4. 결과\n4.1 1차 평가변수\n- TM-5: +31.5(/cm²) vs 위약 +8.1, 차이 +23.4(95% CI 19.8–27.0), p<0.001\n- 반응속도: 12주부터 유의차, 36–48주에 추가 개선 지속\n4.2 2차 평가변수\n- 사진평가 개선(개선 이상): 68% vs 26%, OR 6.9, p<0.001\n- PRO 만족도: +1.3 vs +0.4, p<0.001\n- 모발 굵기: +8.1 μm vs +1.6 μm, p<0.001\n- 여성 하위분석(n≈215): 차이 +20.2(/cm²), p<0.001, 안전성 프로파일 유사\n4.3 안전성\n- TEAE: 32% vs 29%, 대부분 경도 국소자극(홍반/가려움/건조)\n- 약물관련 SAE: 없음\n- 중단: TM-5 4.1% vs 위약 2.9%, 주로 국소반응 악화\n- 호르몬/대사: 테스토스테론, DHT 유의 변화 없음\n- 장기 안전: 48주 간 전신 관련 신호 없음\n4.4 순응도 및 사용량\n- 전자일지 순응도 96.8%, 평균 사용량 1.0±0.1 mL/회, BID 1.94±0.08 회/일\n5. 통계적 민감도 분석\n- 다중결측 MI 및 패턴혼합모형 결과 기본 분석과 일치\n- 주요 공변량(연령, 성별, 베이스라인 TAHC)에 대한 상호작용 유의성 없음\n6. Benefit–Risk 평가\n유익성은 48주에 걸쳐 일관되고 임상적으로 의미 있게 확인되었고, 위험은 국소 반응 관리로 통제 가능하다. 따라서 전반적 유익성-위험성 균형은 긍정적이다.\n7. 결론\nTM-5는 남녀 AGA 환자에서 48주간 유효성과 안전성을 입증하였다. 표준 라벨에는 국소자극 주의 문구와 장기 사용 시 정기점검 권고가 포함되어야 한다.\n부록 A. 주요 수치 요약\n- 48주 TAHC 차이: +23.4(/cm²), p<0.001\n- 사진평가 개선: 68% vs 26%\n- TEAE: 32% vs 29%, 약물관련 SAE 0건",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_Phase3",
+        "module": "M2.7"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 M1 행정·라벨링 입력 (가상, KR)\n[신청인/제조 관련]\n- 신청인(법인): 메타파마 주식회사 (MetaPharma Co., Ltd.)\n- 주소: 서울특별시 송파구 헬스테크로 101, 12층 (우)05555\n- 연락: RA팀 02-1234-5678, ra@metapharma.co.kr\n- 제조소(원료): MetaChem Co., 45 Synthon Rd., Osong, KR\n- 제조소(완제): MetaFill Plant, 200 Pharma Ave., Hwaseong, KR\n- 시험소(QC): MetaQC Center, 88 Assay Rd., Daejeon, KR\n- GMP 증빙: 원료/완제 GMP 적합 판정서 첨부(사본)\n[제품 기본 정보]\n- 제품명(한글): TM-5 용액\n- 일반명: TM5-API 국소용 용액\n- 제형/투여경로: 용액 / 국소(두피)\n- 강도: 5 mg/mL\n- 포장단위: 60 mL/병, 폴리백 1개 동봉, 제품설명서 1부\n- 용기·밀폐: HDPE 병 + PP 캡 + 방울마개(점적형), 차광 골판 상자\n- 보관조건: 25°C, 기밀용기, 동결 금지\n- 유효기간(제안): 36개월\n[외부포장 표시(초안)]\n- 효능·효과: 안드로겐성 탈모의 발모 촉진\n- 용법·용량: 하루 2회, 1회 1 mL를 탈모 부위에 점적 후 부드럽게 도포\n- 보관: 25°C, 기밀용기, 어린이 손이 닿지 않는 곳\n- 경고: 눈, 점막, 상처부위 접촉 금지. 자극 지속 시 사용 중지 후 의사 상담.\n- 제조번호/사용기한/제조일자 표기란\n[내부 라벨(병 라벨) 핵심 문안(초안)]\n- 제품명: TM-5 용액 5 mg/mL\n- 용량: 60 mL\n- Lot/EXP: 라벨 인쇄\n- 보관: 25°C, 기밀\n[의약품설명서(요약, PIL)]\n- 성분: TM5-API 5 mg/mL, 에탄올, 프로필렌글리콜, 정제수, 보존제(벤잘코늄염화물 0.01%)\n- 효능·효과: 안드로겐성 탈모의 발모 촉진\n- 용법·용량: 1 mL를 하루 2회 도포. 건조 후 스타일링.\n- 사용상의 주의사항: 국소 자극(홍반, 가려움) 발생 가능. 눈에 들어갈 경우 즉시 물로 세척.\n- 이상반응: 대부분 경도 국소 반응. 심한 자극 지속 시 의료진 상담.\n- 보관: 25°C, 기밀용기, 화기 근처 보관 금지.\n[전자제출 표지/커버레터 요지]\n- 품목: TM-5 용액 신약허가 신청(임상/비임상/품질 포함)\n- 제출범위: CTD M1–M5, 본 문서는 M1 문서 중 행정·라벨링 초안\n- 연락책임자: RA 매니저 김00, 연락처 상동",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_Admin_Labeling_KR",
+        "module": "M1"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 임상 2상(유효성/안전성) 최종보고서 (가상)\n버전: 1.0\n작성일: 2025-09-30\n수행기관: CTDMate Demo CRO\n연구코드: TM5-CL-P2\n요약\n남성 안드로겐성 탈모(AGA) 환자 240명을 대상으로 TM-5 용액(5 mg/mL) 1 mL BID의 24주 유효성 및 안전성을 평가하였다. 1차 평가변수(Target Area Hair Count, TAHC)에서 TM-5는 위약 대비 +17.9 hairs/cm²(95% CI 12.4–23.4, p<0.001)의 개선을 보였다. 사진평가 개선 비율은 62% vs 21%였으며, 안전성은 주로 경도 국소자극에 국한되었다.\n1. 연구설계\n- 다기관, 무작위, 이중눈가림, 위약대조, 24주\n- 배정: TM-5 1 mL BID(n=120) vs 위약(n=120)\n- 층화: 중심, 베이스라인 TAHC\n- 통계: MMRM(치료군, 방문, 상호작용; 공변량=베이스라인)\n2. 대상자\n- 포함: 18–49세 남성, Norwood II–IV, 두피면적 1.0–1.5 cm² 타깃 구역\n- 제외: 최근 6개월 내 관련 치료제 사용, 두피질환\n- 등록/분석: ITT 236, PP 220, 안전성 238\n- 베이스라인: 나이 34.2±6.5, TAHC 182.1±24.3(/cm²)\n3. 평가변수\n- 1차: 24주 TAHC 변화(중앙 판독)\n- 2차: 사진평가(블라인드 IGA), 환자보고결과(PRO) 만족도, 모발 굵기(μm), 삶의 질 지표\n- 안전성: TEAE, 국소자극 점수, 실험실검사/ECG\n4. 결과\n4.1 1차 평가변수\n- TM-5: +24.1(/cm²), 위약: +6.2, 차이 +17.9(95% CI 12.4–23.4), p<0.001\n- 방문별 추세: 12주부터 유의차 발생, 24주 최대치 도달\n4.2 2차 평가변수\n- 사진평가 개선(개선 이상): 62% vs 21%, OR 6.3, p<0.001\n- PRO 만족도(0–3 점수): +1.1 vs +0.3, p<0.001\n- 모발 굵기: +6.2 μm vs +1.1 μm, p<0.01\n4.3 하위군 분석(사전규정)\n- 나이 <40세: 치료효과 +3.2(/cm²) 추가\n- TAHC 낮은 군(≤175/cm²): 효과 증대 경향\n4.4 안전성\n- TEAE: 28% vs 24%, 대부분 경도 국소자극(홍반/가려움)\n- 약물관련 SAE: 없음\n- 중단: TM-5 3건(가려움 악화 2, 접촉피부염 의심 1), 위약 1건\n- 실험실/ECG: 임상적 의미 변화 없음\n5. 통계적 고려 및 민감도 분석\n- 표본수 산출: 효과크기 12 hairs/cm², SD 28, α=0.05, 파워 90% 가정\n- 결측치 처리: MMRM 가정에 기반, 보조 분석으로 MI 실시 결과 유사\n- 사후보정: 다중성은 2차 변수에 한해 탐색적\n6. 논의\nTM-5 1 mL BID는 24주간 TAHC 및 사진평가에서 임상적으로 의미 있는 개선을 보였다. 안전성은 국소 반응 관리로 충분히 대응 가능하다. 48주 장기 연구 및 여성 포함 확대 연구가 필요하다.\n7. 결론\n1차/2차 평가변수에서 일관된 유효성 신호와 양호한 안전성이 확인되었다. 3상으로의 진행이 타당하다.\n부록 A. 주요 수치 요약\n- 24주 TAHC 차이: +17.9(/cm²), p<0.001\n- 사진평가 개선 비율: 62% vs 21%\n- TEAE: 28% vs 24%, SAE 0건",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_Phase2",
+        "module": "M2.7"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 임상 1상(SAD/MAD) 최종보고서 (가상)\n버전: 1.0\n작성일: 2025-09-30\n수행기관: CTDMate Demo CRO\n연구코드: TM5-CL-P1\n요약\n무작위, 이중눈가림, 위약대조 단회/반복 상승용량(SAD/MAD) 연구를 통해 TM-5 국소 용액(5 mg/mL)의 안전성, 내약성, 약동학을 평가하였다. 총 64명이 등록되었고, 전신노출은 낮았으며 용량 제한 독성(DLT)은 관찰되지 않았다. 가장 흔한 이상반응은 경도 국소 홍반이었다. Day 7 기준 Cmax 중앙값은 1.8 ng/mL, AUC0-12h 9.6 ng·h/mL였다.\n1. 연구설계\n1.1 디자인\n- 무작위, 이중눈가림, 위약대조\n- SAD: 0.25, 0.5, 1.0, 2.0 mL 단회 도포(5 mg/mL), 8명/코호트(6 활성, 2 위약)\n- MAD: 0.5, 1.0 mL BID, 14일, 8명/코호트(6 활성, 2 위약)\n1.2 주요·부차 평가변수\n- 주요: 안전성/내약성(TEAE, 피부자극 점수), PK(Cmax, AUC, t1/2)\n- 부차: 국소 모발밀도 탐색적 지표(포토트리코그램, 단일센터 하위군)\n2. 대상자\n- 포함: 18–55세 건강한 성인 남성, Norwood II–III, BMI 18–30\n- 제외: 두피질환, 미녹시딜/피나스테리드 사용 이력 6개월 이내\n- 등록/분석: 64명 등록, 63명 안전성 분석, 60명 PK 분석\n- 베이스라인(평균±SD): 나이 31.4±7.2, BMI 24.2±2.8, 모발밀도 185±22(/cm²)\n3. 방법\n3.1 투여 및 순응도\n- 도포 부위 표준화(정수리 25 cm²), 교육 및 전자 다이어리 기록\n- 순응도: 97.6%(MAD 전체)\n3.2 PK 채혈\n- SAD: 0, 0.5, 1, 2, 4, 8, 12, 24 h\n- MAD: Day 1, 7, 14 각 동일 스케줄\n3.3 피부자극 평가\n- 국제 표준 점수(0–4): 홍반, 건조, 따가움\n4. 결과\n4.1 안전성\n- TEAE: 22%(TM-5) vs 18%(위약), 대부분 경도, 용량 의존 경향 미약\n- 국소 홍반: 6% vs 5%, 평균 점수 0.6\n- SAE: 없음, 중단: 1건(가려움 심화, 연구 약물 관련성 불명확)\n- 실험실검사/ECG: 임상적 의미 변화 없음\n4.2 PK\n- SAD: 노출이 용량에 비례하여 완만히 증가, t1/2 중앙값 5.2 h\n- MAD: Day 7 Cmax 1.8 ng/mL(사분위 1.2–2.3), AUC0-12h 9.6 ng·h/mL, 축적계수 1.2\n4.3 탐색적 유효성(하위군 n=20)\n- 14일 TAHC 변화: +3.2(/cm²) vs 위약 +0.8, p=0.08(탐색적)\n5. 논의 및 결론\nTM-5는 국소 자극을 제외하면 양호한 내약성을 보였고 전신노출은 낮았다. 1.0 mL BID 용법에서 안전성 우려가 없어 2상 임상으로의 진입이 타당하다. 추가적으로 장기 사용 시 국소 반응 관리 계획이 필요하다.\n부록 A. 이상반응 요약(안전성 집단)\n- TM-5(n=47): 국소 홍반 6%, 가려움 4%, 두통 3%\n- 위약(n=16): 국소 홍반 5%, 두통 2%",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_Phase1",
+        "module": "M2.7"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 M2.5 임상 개요(Clinical Overview)\n1. 개발 배경 및 목표\n안드로겐성 탈모(AGA)는 미충족 수요가 높은 만성 질환이다. TM-5는 국소 AR 길항/5α-환원효소 저해를 통한 발모 촉진을 목표로 개발되었다.\n2. 임상약리 요약\n- 노출: 1 mL BID에서 낮은 전신노출(Cmax ~1.8 ng/mL), 축적계수 1.2.\n- 약력학: 모낭 anagen 연장과 관련 바이오마커 탐색 중. 임상-약력 지표의 상관관계는 제한적이나 용법 1 mL BID에서 효능 수렴.\n- 상호작용: 전신 노출이 낮아 임상적 상호작용 가능성 낮음.\n3. 유효성 통합\n- 2상(24주, n=240): 1차 변수 TAHC 차이 +17.9(/cm²), p<0.001. 사진평가 개선 62% vs 21%.\n- 3상(48주, n=780): 1차 변수 차이 +23.4(/cm²), p<0.001. 사진평가 개선 68% vs 26%.\n- 하위군: 나이<40세에서 효과 크기 증가 경향. 성별 간 유의 상호작용 없음(3상).\n4. 안전성 통합\n- 흔한 이상반응: 경도 국소 반응(홍반/가려움/건조).\n- 약물관련 SAE: 없음. 중단율 4.1%(TM-5) vs 2.9%(위약) – 주로 국소반응 악화.\n- 실험실/ECG/호르몬: 임상적 의미 변화 없음.\n5. Benefit–Risk 결론\n24–48주 전반에서 유익성은 위험성 대비 우월. 국소 자극은 라벨 경고와 환자 교육으로 관리 가능. 현 용법/용량(1 mL BID) 유지 권고.\n6. posology 및 대상 환자\n- 권장 용법: 성인 AGA, 1 mL BID, 건조 후 방치. 눈/점막 회피.\n- 특수집단: 간/신장애 환자에 대한 데이터 제한적이나 국소 노출로 위험 낮음.\n7. 향후 과제\n- 장기 사용(≥2년) 안전성 추적, 여성·고령층 추가 데이터, 병용요법 탐색.",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_M2_5_Clinical_Overvi",
+        "module": "M2.5"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 비임상 통합 실험보고서 (가상)\n버전: 1.0\n작성일: 2025-09-30\n작성기관: CTDMate Demonstration Laboratory\n연구코드: TM5-NC-ALL\n요약\nTM-5(성분코드 TM5-API)는 국소 도포형 발모 촉진 후보물질이다. 본 비임상 통합 보고서는 약리, 약동학, 독성, 국소자극성 및 유전독성 평가의 핵심 결과를 통합하여 사람 대상 최초 투여(FIH) 및 임상개발을 지원하기 위해 작성되었다. 화학적 특성은 백색 결정성 분말, pKa 7.1, logP 2.3이며 물에 거의 불용이다. 국소용 액제(5 mg/mL, 에탄올/프로필렌글리콜/정제수)를 개발 제형으로 사용하였다. TM-5는 안드로겐 수용체(AR) 길항과 5α-환원효소(II형) 저해를 통해 모낭의 성장기(anagen)를 연장하였다. 동물 모델에서 발모면적 및 모발밀도 증가가 확인되었고, 전신노출은 낮았다. 반복도포 독성에서 NOAEL은 래트 50 mg/kg/day(국소)였고, 유전독성 배터리는 모두 음성이었다. hERG 저해와 주요 장기계(심혈관, 호흡, 중추신경) 안전성 약리에서 특이 신호가 없었다.\n1. 시험물질 및 제형\n1.1 화학·물리 특성\n- 원료의약품: TM5-API, 순도 99.6%(HPLC, 면적%)\n- 일반성상: 백색 결정성 분말, 냄새 없음\n- pKa: 7.1(수용액, 유변법)\n- logP: 2.3(옥탄올/물, 쉐이크 플라스크)\n- 용해도: 물 < 0.05 mg/mL, 에탄올 > 200 mg/mL, PG > 150 mg/mL\n- 잔류용매: 클래스 2 용매 한도 이하(ICH Q3C 기준)\n1.2 개발 제형\n- 완제: 국소용 용액 5 mg/mL\n- 용매 시스템: 에탄올/프로필렌글리콜/정제수 = 40/10/50(v/v/v)\n- 보존제: 벤잘코늄염화물 0.01%\n- pH: 5.5–6.0\n- 점도: 2–3 mPa·s(25°C)\n2. 약리(Pharmacology)\n2.1 분자 표적 프로파일\n- AR 결합 저해: IC50 = 0.80 nM (n=3, 평균±SD 0.80±0.09)\n- 5α-환원효소 II형 저해: IC50 = 1.2 nM (세포 기반, n=3)\n- 오프타깃 패널(72개 수용체/이온채널): 1 μM에서 30% 초과 결합 없음\n2.2 모낭 기관배양(Hair Follicle Organ Culture, HFOC)\n- 인간 모낭 조직(수술 잔여물)에서 21일 배양\n- 처리농도: 1, 10, 100 nM\n- 주요 결과: anagen 기간 35% 연장(100 nM, p<0.001), 카스파아제-3 양성세포 28% 감소\n- 유전자 발현: Wnt/β-catenin 관련 유전자(LEF1, AXIN2) 상향(ΔCt 기준 +0.9~+1.3)\n2.3 동물 모델\nA) C57BL/6 마우스 텔로겐→아나겐 유도 모델\n- 수컷 8주령, 배정: TM-5(1 mL/day, 5 mg/mL) vs 위약, n=12/군, 28일\n- 주요 지표: 아나겐 면적(%), 모발밀도(/cm²)\n- 결과: 아나겐 면적 78% vs 41%(p<0.001), 모발밀도 +32.0±6.4 vs +9.2±5.1(/cm²)\nB) 골든햄스터 flank organ\n- 수컷, 주 7회 4주 도포\n- 결과: 발모 면적 42%↑(대조 대비, p<0.001), 피지선 비대 억제 신호 없음\n2.4 내성·반동 평가\n- 8주 연속 도포 후 4주 중단 관찰: 중단 후 2주차까지 효과 유지, 4주차 기저선 대비 +12% 유지\n3. 약동학(Pharmacokinetics, PK) 및 피부투과\n3.1 인체 피부(Franz cell) 투과시험\n- 기증자 피부(n=6), 도포량 2 mg/cm²\n- 24 h 누적 투과량: 0.28±0.07 μg/cm²\n- 스트라텀 코르눔/표피·진피 잔류: 3.6±0.8 μg/cm²(주로 모낭 주변)\n3.2 래트 경피흡수\n- 5 mg/mL, 1 mL/day, 7일\n- Cmax 2.1±0.6 ng/mL, AUC0-24h 38±9 ng·h/mL, t1/2 5.4±1.1 h\n3.3 미니피그 피부 잔류/혈중노출\n- 1 mL BID, 14일\n- 피부 잔류 5.8±1.2 μg/g, 혈중 Cmax 1.5±0.5 ng/mL\n3.4 대사 및 상호작용 잠재성\n- 인체 간 미소체 안정성: t1/2 48 min(클리어런스 낮음)\n- CYP 억제 패널: 1 μM에서 CYP3A4/2D6/2C9/1A2 억제 < 15%\n4. 독성(Toxicology)\n4.1 단회투여 독성\n- 마우스 경구 LD50 > 2000 mg/kg\n- 토끼 피부도포 2,000 mg/kg 단회: 전신 독성 미관찰\n4.2 반복도포 독성(래트, 국소)\n- 설계: 28일, 0/5/20/50 mg/kg/day, n=10/군\n- 관찰: 체중, 음식섭취, 활력징후, 혈액/혈청화학, 조직병리(피부 포함)\n- 결과: 국소 홍반/건조 경미(고용량, 평가점수 평균 1.2/4), 전신 지표 변화 없음\n- NOAEL: 50 mg/kg/day(최대용량)\n4.3 광독성/감작성\n- 3T3 NRU 광독성: 음성\n- 마우스 LLNA 피부감작성: SI 1.4(음성 기준 <3), 계절성 영향 없음\n4.4 유전독성\n- Ames(5균주, ±S9): 음성\n- In vitro 염색체 이상(HL60, ±S9): 음성\n- In vivo 마우스 골수 미소핵: 음성\n4.5 안전성 약리\n- hERG 전류 저해: 30 μM까지 의미 있는 저해 없음(≤6%)\n- 래트 혈압/심박/호흡: 이상 소견 없음\n4.6 불순물·니트로사민 평가\n- 공정상 니트로사민 전구체 사용 없음, 이론적 생성량 일일 노출 10 ng 이하(한도 내)\n5. FIH 시작용량 산출\n- 동물 NOAEL(50 mg/kg/day, 래트) → HED = 8.1 mg/kg(체표면적 보정)\n- 안전계수 10 적용 → 시작용량 0.81 mg/kg/day\n- 국소 제형 변환: 성인 두피 도포량 1 mL BID(5 mg/mL)에서 체중 70 kg 기준 시스템 노출 여유 ≥ 100배\n6. 결론\nTM-5는 발모 관련 기전에 적합한 약리 활성을 보이며, 전임상에서 전신노출이 낮고 안전성 프로파일이 양호하다. 반복도포 독성, 유전독성, 안전성 약리 결과는 임상 진입을 지지한다. 리스크 관리는 국소 자극 모니터링과 장기 안정성 지속 관찰을 중심으로 한다.\n부록 A. 핵심 데이터 요약표\n표 A-1. 분자 표적 IC50\n- AR: 0.80 nM\n- 5α-Reductase II: 1.2 nM\n표 A-2. PK 파라미터(래트, n=12)\n- Cmax: 2.1±0.6 ng/mL\n- AUC0-24h: 38±9 ng·h/mL\n- t1/2: 5.4±1.1 h",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_Nonclinical",
+        "module": "M2.6"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nmeta:\ndocument: CTD M2.6 비임상 서술·표 요약 – TM-5\nlanguage: ko\nversion: '1.0'\nnarratives:\npharmacology: TM-5는 AR 길항 및 5α-환원효소 저해로 모낭의 anagen 유지를 촉진하였다. 기관배양과 설치류 모델에서 일관된\n효능이 확인되었다.\npk_adme: 경피 투과는 낮고 피부 잔류가 우세하다. 래트 경피 투여에서 혈중 노출은 낮았으며 대사 상호작용 잠재성은 낮다.\ntoxicity: 28일 반복도포에서 NOAEL 50 mg/kg/day. 국소 홍반 외 전신 독성 소견 없음.\ngenotoxicity: Ames, 염색체 이상, 미소핵 시험 모두 음성.\nsafety_pharmacology: hERG 저해 및 주요 생리계 영향 소견 없음.\ntables:\npharmacology:\ncolumns:\n- StudyID\n- Model\n- n\n- Route\n- Dose\n- Duration\n- PrimaryEndpoint\n- Result\n- Notes\nrows:\n- - TM5-NC-AR-01\n- AR binding assay\n- '3'\n- in vitro\n- 0.01–100 nM\n- —\n- IC50(nM)\n- 0.80±0.09\n- Competitive binding\n- - TM5-NC-5AR-01\n- 5α-Reductase type II\n- '3'\n- cell-based\n- 0.01–100 nM\n- —\n- IC50(nM)\n- '1.2'\n- —\n- - TM5-HFOC-01\n- Human HFOC\n- 6 follicles/group\n- topical\n- 1–100 nM\n- 21 d\n- Anagen duration\n- ↑35% (100 nM), p<0.001\n- Caspase-3 ↓28%\n- - TM5-DF-01\n- C57BL/6 telogen→anagen\n- 12/arm\n- topical\n- 1 mL/day, 5 mg/mL\n- 28 d\n- Hair density(/cm²)\n- +32.0±6.4 vs +9.2±5.1\n- Anagen area 78% vs 41%\n- - TM5-HAM-FO-01\n- Golden hamster flank\n- 10/arm\n- topical\n- QD\n- 28 d\n- Hair area\n- +42% vs control, p<0.001\n- —\npk_adme:\ncolumns:\n- StudyID\n- Species/Matrix\n- Regimen\n- Cmax(ng/mL)\n- AUC(ng·h/mL)\n- t1/2(h)\n- SkinResidue(μg/g)\n- Notes\nrows:\n- - TM5-FRZ-01\n- Human skin Franz\n- 2 mg/cm², 24 h\n- —\n- —\n- —\n- —\n- 24 h permeation 0.28 μg/cm²\n- - TM5-RAT-PK-01\n- Rat plasma\n- 1 mL/day, 7 d\n- 2.1±0.6\n- 38±9\n- 5.4±1.1\n- —\n- Low systemic exposure\n- - TM5-PIG-SKIN-01\n- Mini-pig skin/blood\n- 1 mL BID, 14 d\n- 1.5±0.5\n- —\n- —\n- 5.8±1.2\n- Skin depot prominent\ntox_repeat:\ncolumns:\n- StudyID\n- Species/Sex\n- Route\n- Dose(mg/kg/day)\n- Duration\n- Findings\n- NOAEL\n- Notes\nrows:\n- - TM5-RAT-RD-28D\n- Rat/M+F\n- topical\n- 0,5,20,50\n- 28 d\n- Mild local erythema at high dose\n- '50'\n- No systemic toxicity\ngenotox:\ncolumns:\n- StudyID\n- Assay\n- System\n- MetabolicActivation\n- Result\n- Notes\nrows:\n- - TM5-AMES-01\n- Ames\n- TA98/100/1535/1537/E.coli\n- ±S9\n- Negative\n- —\n- - TM5-CHROM-01\n- Chromosome aberration\n- HL60\n- ±S9\n- Negative\n- —\n- - TM5-MN-01\n- Micronucleus\n- Mouse bone marrow\n- —\n- Negative\n- —\nsafety_pharm:\ncolumns:\n- StudyID\n- Assay\n- Concentration/Dose\n- Endpoint\n- Result\n- Notes\nrows:\n- - TM5-hERG-01\n- hERG patch clamp\n- 30 μM\n- I_Kr inhibition\n- ≤6%\n- No threshold effect\n- - TM5-RAT-SPH-01\n- CV/Resp/CNS panel\n- Topical high dose\n- Physiology\n- No adverse signal\n- Telemetry",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_M2_6_Nonclinical_Sum",
+        "module": "M2.6"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nTM-5 M2.4 비임상 개요(Nonclinical Overview)\n개요\nTM-5는 안드로겐 수용체 길항과 5α-환원효소 저해를 기전으로 하는 국소 발모 후보물질이다. 비임상 프로그램은 약리, 피부투과/약동학, 반복도포 독성, 유전독성, 안전성 약리, 국소 내약성을 포함하며 GLP 적용 시험은 해당 범주에 따라 수행되었다.\n1. 약리(Pharmacology) 요약\n- 주요 표적: AR(IC50 0.80 nM), 5α-환원효소 II(IC50 1.2 nM). 오프타깃 72패널에서 1 μM 무의미 결합.\n- 기능적 모델: 인간 모낭 기관배양에서 anagen 35% 연장, 아포토시스 표지 28% 감소.\n- 동물 모델: C57BL/6 마우스 및 골든햄스터 모델에서 발모면적/모발밀도 유의한 증가.\n2. 약동학/피부투과 요약\n- 인체 피부 Franz cell 투과 낮음(24 h 0.28 μg/cm²). 모낭 주변 조직잔류 우세.\n- 래트 경피 Cmax 2.1 ng/mL, AUC0-24h 38 ng·h/mL. t1/2 5.4 h.\n- 대사 상호작용 잠재성 낮음(CYP 억제 <15% @1 μM).\n3. 독성(Toxicology) 요약\n- 단회투여 독성: 경구 LD50 > 2000 mg/kg, 국소 단회 독성 신호 없음.\n- 28일 반복도포(래트): NOAEL 50 mg/kg/day(최대용량), 국소홍반 경미.\n- 유전독성: Ames, in vitro 염색체 이상, in vivo 미소핵 모두 음성.\n- 안전성 약리: hERG 30 μM까지 의미 저해 없음, 생리계 모니터 이상 없음.\n4. 종/모델 선택 근거\n- 피부 구조와 인간 유사성 고려해 마우스/햄스터 및 인체 피부를 병행. 약리학적 표적의 종 간 보존성이 확인됨.\n5. GLP 진술\n- 독성시험(반복도포, 유전독성 일부)은 GLP 준수로 수행. 약리/피부투과 중 일부는 탐색연구로 비GLP.\n6. 인체 시작용량·안전여유\n- 래트 NOAEL 50 mg/kg/day → HED 8.1 mg/kg. 안전계수 10 적용 시 시작용량 0.81 mg/kg/day.\n- 제형/경로 변환 기준에서 임상 도포량 1 mL BID(5 mg/mL)로 환산 시 전신노출 여유 ≥100배.\n7. 결론 및 인체 위험관리\n- 예상 위험: 국소 자극/접촉피부염. 완화전략: 초기 수주 모니터링, 피부장벽 손상 환자 주의.\n- 전체적으로 비임상 자료는 임상 개발과 긍정적 BR 프로필을 지지한다.\n교차참조(예시 Study ID)\n- TM5-NC-AR-01, TM5-NC-5AR-01, TM5-HFOC-01, TM5-DF-01, TM5-RAT-RD-28D, TM5-AMES-01, TM5-CHROM-01, TM5-MN-01, TM5-hERG-01",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_M2_4_Nonclinical_Ove",
+        "module": "M2.4"
+      },
+      {
+        "validated": true,
+        "pass": false,
+        "violations": [],
+        "normalized_content": "Text\nmeta:\ndocument: CTD M2.7 임상 요약 – TM-5(가상)\nlanguage: ko\nversion: '1.0'\nsections:\n2.7.1.biopharmaceutics:\nnarrative: 국소 용액으로 생물학적동등성/용출-흡수 시험은 해당 없음. 점도/도포면적 표준화, 잔여량 평가 수행.\n2.7.2.clinical_pharmacology:\ntables:\nexposure_overview:\ncolumns:\n- Study\n- Regimen\n- N\n- Cmax(ng/mL) median\n- AUC(ng·h/mL) median\n- AccumulationRatio\n- Notes\nrows:\n- - P1-MAD\n- 1 mL BID, 14 d\n- '32'\n- '1.8'\n- '9.6'\n- '1.2'\n- Low systemic exposure\nnarrative: 낮은 전신노출과 제한적 축적. 음식효과 없음.\n2.7.3.efficacy:\ntables:\nefficacy_by_study:\ncolumns:\n- Study\n- Population\n- N (TM-5/Placebo)\n- Primary Endpoint\n- TM-5 Δ vs PBO\n- p-value\n- Key Secondary\nrows:\n- - P2-24W\n- Male AGA\n- 120/120\n- ΔTAHC 24w\n- +17.9 (/cm²)\n- <0.001\n- Photo response 62% vs 21%\n- - P3-48W\n- Male/Female AGA\n- 390/390\n- ΔTAHC 48w\n- +23.4 (/cm²)\n- <0.001\n- Photo response 68% vs 26%\nnarrative: 12주 이후 유의차가 나타나 24–48주까지 확대.\n2.7.4.safety:\ntables:\nae_by_soc:\ncolumns:\n- SOC\n- TM-5 n/N(%)\n- PBO n/N(%)\n- Risk Difference(%)\n- Severity\n- Action Taken\nrows:\n- - Skin disorders (erythema)\n- 45/140 (32.1)\n- 37/128 (28.9)\n- '+3.2'\n- Mild\n- Continue/Topical care\n- - Pruritus\n- 18/140 (12.9)\n- 12/128 (9.4)\n- '+3.5'\n- Mild\n- Continue or interrupt\n- - Headache\n- 10/140 (7.1)\n- 8/128 (6.3)\n- '+0.8'\n- Mild\n- None\ndiscontinuations:\ncolumns:\n- Study\n- Reason\n- TM-5 n(%)\n- PBO n(%)\nrows:\n- - P2\n- Local irritation\n- 3 (2.5)\n- 1 (0.8)\n- - P3\n- Local irritation\n- 16 (4.1)\n- 11 (2.9)\nnarrative: 대부분 경도 국소반응. 약물관련 SAE 없음. 호르몬·대사 지표 변화 없음.",
+        "coverage": 0.0,
+        "citations": [],
+        "rag_conf": 0.0,
+        "metrics": {
+          "score": 0.0,
+          "score_raw": 0.0,
+          "vio_weight": 0,
+          "glossary_hit": 0.0,
+          "thresholds": {
+            "coverage_min": 0.7,
+            "rag_conf_min": 0.4,
+            "vio_max": 3,
+            "generate_gate": 0.65
+          }
+        },
+        "sheet_name": "TM_5_M2_7_Clinical_Summar",
+        "module": "M2.7"
+      }
+    ],
+    "summary": {
+      "total_violations": 0,
+      "avg_coverage": 0.0,
+      "pass_rate": 0.0
+    }
+  },
+  "generate": {
+    "M1": {
+      "file": "../ctdmate/output/M1.yaml",
+      "length": 2253,
+      "lint_ok": false,
+      "ready": false
+    },
+    "M2.3": {
+      "file": "../ctdmate/output/M2_3.yaml",
+      "length": 3257,
+      "lint_ok": false,
+      "ready": false
+    },
+    "M2.4": {
+      "file": "../ctdmate/output/M2_4.yaml",
+      "length": 3287,
+      "lint_ok": false,
+      "ready": false
+    },
+    "M2.5": {
+      "file": "../ctdmate/output/M2_5.yaml",
+      "length": 2334,
+      "lint_ok": false,
+      "ready": false
+    },
+    "M2.6": {
+      "file": "../ctdmate/output/M2_6.yaml",
+      "length": 5028,
+      "lint_ok": false,
+      "ready": false
+    },
+    "M2.7": {
+      "file": "../ctdmate/output/M2_7.yaml",
+      "length": 2845,
+      "lint_ok": true,
+      "ready": true
+    }
+  }
+}

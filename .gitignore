@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# 환경 변수
+.env
+.env.local
+*.env
+
+# 가상환경
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 프로젝트 특정
+uploads/*
+!uploads/.gitkeep
+output/*
+!output/.gitkeep
+out/*
+!out/.gitkeep
+
+# 임시 파일
+*.log
+*.tmp
+*.bak
+
+# 모델 파일 (용량 큰 파일)
+models/*.gguf
+*.bin
+*.pt
+*.pth
+
+# 벡터 DB 데이터
+qdrant_storage/*
+!qdrant_storage/.gitkeep
+
+# 불필요한 폴더
+unused_old_code/
+temp/
+test_output/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# 테스트 관련
+.pytest_cache/
+.coverage
+htmlcov/
+
+# CTDAgent output
+CTDAgent/output/*
+!CTDAgent/output/.gitkeep

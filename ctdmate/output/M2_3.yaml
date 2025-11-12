@@ -1,0 +1,110 @@
+```yaml
+meta:
+  document: 'CTD M2.3 QOS – TM-5 '
+  language: ko
+  version: '1.0'
+  last_updated: '2025-09-30'
+2.3.S:
+  S.1.1.nomenclature: |
+    TM5-API는 화학명이 비공개이며 일반명은 TM5-API로 명명됨[CIT-1].
+  S.1.2.structure_properties: |
+    TM5-API는 백색 결정성 분말이며, pKa 7.1, logP 2.3, 물에 거의 불용성임[CIT-1].
+  S.2.manufacture:
+    sites:
+      - name: MetaChem Co.
+        role: Drug Substance 제조[CIT-1].
+      - name: MetaFill Plant
+        role: Drug Product 제조/포장[CIT-1].
+    process_summary: |
+      합성 4단계 공정으로 구성되며, 반응완결 및 잔류용매 공정관리가 설정되고 용매 회수 관리가 수행됨[CIT-1].
+  S.3.characterisation: |
+    주불순물 A는 0.06%, B는 0.03%이며, 유전독성 불순물은 검출한계(LOD 0.03%) 미만으로 미검출됨[CIT-1].
+  S.4.control_of_drug_substance:
+    spec_key_points:
+      - 확인: HPLC/IR[CIT-1].
+      - 순도: NLT 99.0%[CIT-1].
+      - 잔류용매: ICH Q3C 준수[CIT-1].
+    method_validation: |
+      선형성, 정밀성, 특이성 검증 결과 수용기준 충족[CIT-1].
+    batch_analysis: |
+      개발 3개 배치 분석 결과 모두 적합[CIT-1].
+  S.5.reference_standards: |
+    순도 99.9%의 사내 기준물질 사용, -20°C 보관[CIT-1].
+  S.6.container_closure: |
+    Drug Substance는 갈색 유리병에 보관되며 PTFE 실링 적용[CIT-1].
+  S.7.stability:
+    conditions:
+      - 25°C/60%RH 24개월[CIT-1].
+      - 40°C/75%RH 6개월[CIT-1].
+    results: |
+      함량 99.1% → 98.2%(24개월), 분해물 증가 미미[CIT-1].
+    shelf_life_proposal: 36개월[CIT-1].
+2.3.P:
+  P.1.description_composition:
+    dosage_form: 국소용 용액 5 mg/mL[CIT-1].
+    composition_table:
+      - component: TM5-API
+        target: 5 mg/mL[CIT-1].
+      - component: 에탄올
+        target: 400 mg/mL[CIT-1].
+      - component: 프로필렌글리콜
+        target: 100 mg/mL[CIT-1].
+      - component: 정제수
+        target: 잔량[CIT-1].
+      - component: 벤잘코늄염화물
+        target: 0.01%[CIT-1].
+  P.2.pharmaceutical_development:
+    CQAs:
+      - 함량[CIT-1].
+      - 미생물 한도[CIT-1].
+    CPPs:
+      - 혼합시간[CIT-1].
+      - 용제비[CIT-1].
+    design_space: |
+      혼합시간/온도 범위 제한적 탐색 완료[CIT-1].
+    comparability: |
+      파일럿→공업 규모 비교 데이터 적합[CIT-1].
+  P.3.manufacture:
+    process_flow: 용해→혼합→여과→충전→포장[CIT-1].
+    batch_size: 100 L[CIT-1].
+    IPCs:
+      - pH[CIT-1].
+      - 비중[CIT-1].
+      - 함량[CIT-1].
+    process_validation: |
+      3개 상업 규모 배치 유효성 확인 계획[CIT-1].
+  P.4.control_of_excipients: |
+    약전 등재 품질규격 적용, 보존제 함량 모니터링[CIT-1].
+  P.5.control_of_drug_product:
+    spec_key_points:
+      - 함량: 95–105%[CIT-1].
+      - 미생물: 10^2 CFU/mL 이하[CIT-1].
+      - 용제잔류: 한도 충족[CIT-1].
+    method_validation: |
+      함량/보존제/미생물 시험법 검증 완료[CIT-1].
+    batch_analysis: |
+      개발 3개 배치 적합[CIT-1].
+  P.6.reference_standards: |
+    함량 정량용 표준품(사내, 추적성 확보)[CIT-1].
+  P.7.container_closure: |
+    HDPE 병 + PP 캡 + 점적기, 차광 외포장[CIT-1].
+  P.8.stability:
+    conditions:
+      - 25°C/60%RH 24개월[CIT-1].
+      - 40°C/75%RH 6개월[CIT-1].
+    results: |
+      장기 24개월 98.2%, 가속 6개월 96.5%[CIT-1].
+    storage_statement: |
+      25°C 보관, 기밀용기, 동결 금지[CIT-1].
+    shelf_life: 36개월[CIT-1].
+References:
+  - {doc: 'TM_5_M2_3_QOS', section: '2.3.S', page: 'NEED_INPUT', para_id: 'NEED_INPUT'}
+  - {doc: 'TM_5_M2_3_QOS', section: '2.3.P', page: 'NEED_INPUT', para_id: 'NEED_INPUT'}
+
+
+### 설명
+- **인용 표기**: 모든 핵심 문장에 `[CIT-1]`을 추가하였으며, 이는 제공된 사용자 요청의 `TM_5_M2_3_QOS` 문서를 근거로 함.
+- **불명확한 값**: `References` 내 `page` 및 `para_id`는 원본 문서에 명시되지 않아 `NEED_INPUT`으로 표기.
+- **YAML 형식**: CTD M2.3 스켈레톤을 준수하여 계층적 구조로 작성.  
+- **규제 언어**: 한국어(ko)로 일관되게 유지.
+```

@@ -1,104 +1,402 @@
 # CTDMate
 
-이 프로젝트는 **CTD(Common Technical Document)** 인허가 문서의 **자동 작성, 매핑, 검증**을 수행하는  
-**규칙(Rule) + RAG(검색증강) + LLM 기반 에이전트 시스템**입니다.  
+**AI 기반 CTD(Common Technical Document) 문서 자동 생성 및 검증 시스템**
 
-LLM은 선택적으로 사용되며, **온디바이스 환경(Llama-3.2-1B-Instruct 모델 + Llama.cpp)** 에서도 동작 가능합니다.
+CTDMate는 의약품 허가 신청에 필요한 CTD 문서의 **생성, 파싱, 검증**을 자동화하는 엔드투엔드 시스템입니다.
+ReAct AI 에이전트, RAG(검색증강생성), LLM을 결합하여 문서 작성 시간을 단축하고 휴먼 에러를 감소시킵니다.
+
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.118+-green.svg)](https://fastapi.tiangolo.com/)
+[![License](https://img.shields.io/badge/License-Educational-yellow.svg)]()
+
+### 🎥 실행 데모
+[![CTDMate 데모](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUR_VIDEO_ID)
+> 💡 **클릭하여 전체 데모 영상 보기** - Excel 업로드부터 CTD 문서 생성까지 전 과정
 
 ---
 
 ## 🚀 주요 기능
 
-- **Tool 1: 문서 자동 파싱**
-  - Upstage Document AI를 사용하여 인허가 문서를 구조화 (JSON, 텍스트 등)
-- **Tool 2: CTD 내용 검증**
-  - RAG 기반으로 **ICH / MFDS Reference**와 비교하여 누락된 근거 탐지
-- **Tool 3: CTD 문서 작성**
-  - LLM(Solar Pro 2 / Llama-3.2-1B-Instruct 모델 + Llama.cpp)을 활용한 CTD 문서 자동 생성 및 수정 제안
-- **YAML 기반 규칙 점검**
-  - 사전 정의된 템플릿 규칙에 따라 자동 검증 수행
-- **선택적 LLM 사용**
-  - 초안 작성, 용어 통일, 문장 자연화 등 보조 기능 수행
+### 1. 지능형 모드 자동 감지
+AI가 다층적 분석을 통해 작업 유형을 자동으로 판단합니다.
 
----
+**감지 알고리즘 (3단계):**
+1. **파일명 키워드**:<br>"final", "CTD", "완성" → 검증 <br> "data", "실험", "draft" → 생성
+2. **파일 내용 분석**: "국제공통기술문서", "목차", "1부/2부/3부" 등 CTD 구조 키워드 감지
+3. **확장자 기반**: <br>PDF → 검증 모드 <br>Excel/CSV → 생성 모드
+4. **LLM 분석** (불확실한 경우): Llama 3.2-3B가 내용 직접 분석
 
-## 🧩 시스템 구성 (온디바이스 + 보조 분기)
+**결과:**
+- **생성 모드**: Excel/CSV 원시 데이터 → CTD 문서 자동 생성
+- **검증 모드**: PDF 완성 문서 → ICH 규정 준수 검증
+
+### 2. ReAct AI 에이전트
+스스로 추론하고 행동하는 AI 에이전트가 복잡한 워크플로우를 자동으로 실행합니다.
 
 ```
-                 ┌─────────────────────────┐
-                 │       Input File        │
-                 │   (Module1, 2, 3 등)    │
-                 └─────────────┬───────────┘
-                               │
-                               ▼
-                      ┌───────────────┐
-                      │  LLM Router   │
-                      │  (온디바이스) │
-                      └───────┬───────┘
-                              │
-      ┌───────────────────────┼──────────────────────────────────┐
-      ▼                       ▼                                  ▼
-┌───────────────┐      ┌─────────────────────────┐   ┌─────────────────────────┐
-│    Tool 1     │      │         Tool 2          │   │          Tool 3         │
-│   문서 파싱   │      │      CTD 내용 검증      │    │      CTD 작성/요약      │
-│ Upstage DocAI │      │     RAG Validator       │   │        LLM Writer       │
-│   (클라우드)  │      │  (ICH / MFDS Reference) │   │    (클라우드/온디바이스) │
-└───────┬───────┘      └─────────┬───────────────┘   └─────────┬───────────────┘
-        │                        │                             │
-        └────────────────────────┴─┬───────────────────────────┘
-                                   ▼                         
-                 ┌───────────────────────────────┐
-                 │      YAML Rule Checker        │
-                 │      + LLM Review Loop        │
-                 └───────────────┬───────────────┘
-                                 ▼
-                   ┌──────────────────────────────┐
-                   │부족한 근거/누락 시 루프 재진입│
-                   │ (RAG / LLM / 규칙 단계 복귀) │
-                   └───────────────┬──────────────┘
-                                   ▼
-                            ┌───────────┐
-                            │   Output  │
-                            │(CTD 파일) │
-                            └───────────┘
+사용자 입력 → AI 분석 → 도구 선택 → 실행 → 결과 생성
 ```
 
+### 3. RAG 기반 규정 검증
+- ICH/MFDS 규정 문서를 벡터 DB에 저장
+- 업로드된 문서와 규정을 의미 기반으로 비교
+- 누락/위반 사항을 자동으로 탐지하고 개선 제안
 
-## 🧠 LLM 활용 전략
-
-| 환경        | 모델                                         | 역할 |
-|------------|--------------------------------------------|------|
-| 온디바이스 | **Llama-3.2-1B-Instruct + Llama.cpp**      | 로컬 환경에서 LLM 기반 문서 생성 및 보정 |
-| 클라우드   | **Solar Pro 2 (Upstage)**                  | 초안 작성, 요약, 용어 통일 |
-
----
-
-## ⚙️ 구성 모듈 상세
-
-| Tool | 이름 | 설명 |
-|------|------|------|
-| **Tool 1** | **Upstage Document Parser** | 업로드된 문서를 구조화 |
-| **Tool 2** | **RAG Validator** | ICH/MFDS 문서를 기반으로 근거 검증 및 보완 피드백 제공 |
-| **Tool 3** | **LLM CTD Writer** | Solar Pro 2 / Llama-3.2-1B-Instruct 모델 기반 CTD 문서 자동 작성 |
+### 4. 웹 UI
+- 파일 업로드만으로 모든 작업 수행
+- 실시간 진행 상황 확인
+- PDF 다운로드 및 미리보기
 
 ---
 
-## 🔁 검증 피드백 루프
+## 🏗️ 시스템 아키텍처
 
-1. 입력 파일을 LLM Router가 분류 (온디바이스)  
-2. Tool 1~3 처리 (보조 분기 포함)  
-3. YAML 규칙 및 RAG 결과로 검증 수행  
-4. 부족한 근거나 누락 발견 시 루프 재진입  
-5. 최종 CTD 문서 출력  
+```
+┌───────────────────────────────────────┐
+│        웹 UI (FastAPI)                │
+│     http://localhost:8000             │
+└─────────────────┬─────────────────────┘
+                  │
+                  ↓
+┌─────────────────────────────────────────────────────┐
+│           CTDMate 메인 시스템                        │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  라우터 (router.py)                          │   │
+│  │  - 파일 업로드 처리                           │   │
+│  │  - CTDAgent 호출                             │   │
+│  │  - 결과 반환                                  │   │
+│  └──────────────────────────────────────────────┘   │
+│                                                     │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  Tools                                       │   │
+│  │  - Upstage Document Parser (파싱)            │   │
+│  │  - RAG Validator (규정 검증)                  │   │
+│  │  - Solar Generator (문서 생성)                │   │
+│  │  - PDF Generator (PDF 변환)                  │   │
+│  └──────────────────────────────────────────────┘   │
+└─────────────────┬───────────────────────────────────┘
+                  │
+                  ↓
+┌─────────────────────────────────────────────────────┐
+│         CTDAgent (ReAct 에이전트)                    │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  agent.py (메인 로직)                         │   │
+│  │  - 모드 자동 감지                             │   │
+│  │  - ReAct 루프 (Thought → Action → Obs)       │   │
+│  │  - 도구 실행 관리                             │   │
+│  └──────────────────────────────────────────────┘   │
+│                                                     │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  registry.py (도구 등록 시스템)               │   │
+│  │  - 8개 전문 도구 등록                         │   │
+│  │  - 도구 스펙 정의                             │   │
+│  └──────────────────────────────────────────────┘   │
+│                                                     │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  tools/ (실행 도구)                           │   │
+│  │  - parse_upstage: 문서 파싱                   │   │
+│  │  - validate_rag: RAG 기반 검증                │   │
+│  │  - generate_solar: CTD 문서 생성              │   │
+│  │  - save_pdf: PDF 변환                         │   │
+│  │  - generate_validation_report: 검증 리포트    │   │
+│  │  - ctdmate_pipeline: 통합 파이프라인          │   │
+│  └──────────────────────────────────────────────┘   │
+└─────────────────┬───────────────────────────────────┘
+                  │
+        ┌─────────┴─────────┐
+        ↓                   ↓
+┌──────────────┐    ┌──────────────┐
+│   Upstage    │    │   Qdrant     │
+│   API        │    │   Vector DB  │
+│              │    │   (RAG)      │
+└──────────────┘    └──────────────┘
+```
 
 ---
 
-## 📦 향후 계획
+## 🛠️ 기술 스택
 
-- 🔍 ICH/MFDS 문서 자동 크롤링 및 인용형 업데이트  
-- 🧩 사용자 정의 YAML 규칙 관리 도구  
-- 💾 온디바이스 최적화  
-- 🧠 자동 용어 매칭 + 다국어 Translation Layer 추가  
+### AI/ML
+- **Llama 3.2-3B**: ReAct 에이전트 플래너 (로컬)
+- **Solar Pro2**: CTD 문서 생성 LLM (Upstage)
+- **E5-Large**: 다국어 임베딩 모델 (RAG)
+
+### Backend
+- **Python 3.9+**: 주 개발 언어
+- **FastAPI**: 비동기 웹 프레임워크
+- **LangChain**: LLM 애플리케이션 프레임워크
+- **Qdrant**: 벡터 데이터베이스
+
+### External APIs
+- **Upstage Document Parse API**: OCR 및 문서 구조 파싱
+- **Solar API**: 고성능 LLM 기반 문서 생성
+
+### Libraries
+- **ReportLab**: PDF 생성
+- **OpenPyXL**: Excel 파일 처리
+- **PyYAML**: YAML 파싱
+- **python-dotenv**: 환경 변수 관리
+
+---
+
+## 📁 프로젝트 구조
+
+```
+CTDMate/
+├── ctdmate/                    # 메인 패키지
+│   ├── ui/
+│   │   └── api.py              # FastAPI 앱 진입점
+│   ├── app/
+│   │   ├── router.py           # 라우팅 및 CTDAgent 호출
+│   │   ├── config.py           # 환경 설정
+│   │   ├── fsm.py              # 상태 머신
+│   │   └── prompts.py          # LLM 프롬프트
+│   ├── brain/
+│   │   └── router.py           # LLM 라우터
+│   ├── tools/
+│   │   ├── smartdoc_upstage.py # Upstage 파싱 도구
+│   │   ├── reg_rag.py          # RAG 검증 도구
+│   │   └── gen_solar.py        # Solar 생성 도구
+│   ├── rag/                    # RAG 관련 모듈
+│   ├── utils/                  # 유틸리티 함수
+│   └── tests/                  # 테스트 코드
+│
+├── CTDAgent/                   # ReAct 에이전트 (독립 모듈)
+│   ├── agent.py                # ReAct 에이전트 메인 로직
+│   ├── registry.py             # 도구 등록 시스템
+│   ├── settings.py             # 에이전트 설정
+│   ├── tools/                  # 8개 전문 도구
+│   │   ├── parse_upstage.py
+│   │   ├── validate_rag.py
+│   │   ├── generate_solar.py
+│   │   ├── save_pdf.py
+│   │   ├── ctdmate_pipeline.py
+│   │   └── generate_validation_report.py
+│   ├── fonts/                  # PDF 한글 폰트
+│   └── output/                 # 결과 저장 폴더
+│
+├── static/                     # 웹 UI 파일
+│   └── index.html
+├── uploads/                    # 업로드된 파일
+├── output/                     # 생성된 결과물
+├── qdrant_storage/             # 벡터 DB 저장소
+├── requirements.txt            # Python 의존성
+└── README.md                   # 이 파일
+```
+
+---
+
+## 🔄 워크플로우
+
+### 생성 모드 (Generate Mode)
+Excel 파일을 업로드하면 CTD 문서를 자동 생성합니다.
+
+```
+1. 웹 UI에서 Excel 파일 업로드
+   ↓
+2. CTDMate 라우터가 파일 저장
+   ↓
+3. CTDAgent 실행
+   - 모드 감지: Excel 감지 → 생성 모드
+   - Thought: "Excel을 파싱해야 함"
+   - Action: parse_documents 실행
+   - Observation: 파싱 완료
+   - Thought: "검증이 필요함"
+   - Action: validate_excel 실행
+   - Observation: 검증 완료
+   - Thought: "CTD 모듈을 생성해야 함"
+   - Action: generate_all_modules 실행
+   - Observation: 5개 모듈 생성
+   - Thought: "PDF로 변환 필요"
+   - Action: save_as_pdf 실행
+   - Observation: PDF 생성 완료
+   ↓
+4. 결과 반환 (PDF 다운로드 가능)
+```
+
+**결과**: `CTD_Module_2_3_4_5.pdf` (약 5분 소요)
+
+### 검증 모드 (Validate Mode)
+PDF 파일을 업로드하면 ICH 규정 준수를 검증합니다.
+
+```
+1. 웹 UI에서 PDF 파일 업로드
+   ↓
+2. CTDMate 라우터가 파일 저장
+   ↓
+3. CTDAgent 실행
+   - 모드 감지: PDF 감지 → 검증 모드
+   - Thought: "PDF를 파싱해야 함"
+   - Action: parse_documents 실행
+   - Observation: 파싱 완료
+   - Thought: "규정 준수를 검증해야 함"
+   - Action: generate_validation_report 실행
+   - Observation: 검증 완료
+   ↓
+4. 결과 반환 (검증 리포트 다운로드 가능)
+```
+
+**결과**: `validation_report.md` (약 3분 소요)
+- 통과: 45개 항목
+- 실패: 3개 항목 (개선 권고 포함)
+- 경고: 7개 항목
+
+---
+
+  ### 🎥 실행 데모
+
+  <video src="./assets/demo.mp4" controls width="100%">
+    시연 영상
+  </video>
+
+  > 📹 **실제 시연 영상** - 파일 업로드부터 CTD 문서 생성까지 전 과정
+
+**주요 화면:**
+- PDF 문서 파싱
+- RAG 기반 규정 준수 검증
+- CTD 생성 및 다운로드
+
+---
+
+## 🎯 핵심 기술 구현
+
+### 1. ReAct 에이전트 패턴
+
+**위치**: `CTDAgent/agent.py`
+
+```python
+for step in range(1, max_steps + 1):
+    # LLM이 다음 행동 결정
+    ai_response = llama.invoke(history)
+
+    # Thought 추출
+    thought = extract_thought(ai_response)
+    log.info(f"💭 THOUGHT: {thought}")
+
+    # Action 추출 및 실행
+    tool_call = extract_tool_call(ai_response)
+    log.info(f"⚡ ACTION: {tool_call}")
+    result = run_tool(tool_call)
+
+    # Observation 생성
+    observation = f"Observation: {result}"
+    log.info(f"📝 OBSERVATION: {observation}")
+    history.append(observation)
+
+    # 완료 조건 체크
+    if "FinalAnswer" in ai_response:
+        break
+```
+
+### 2. 자동 모드 감지
+
+**위치**: `CTDAgent/agent.py:_detect_mode()`
+
+```python
+def _detect_mode(file_paths, texts, llama):
+    # 1단계: 파일명 키워드
+    for path in file_paths:
+        if any(kw in path for kw in ["final", "CTD", "완성"]):
+            return "validate"
+        if any(kw in path for kw in ["data", "실험", "draft"]):
+            return "generate"
+
+    # 2단계: 파일 내용 분석
+    for text in texts:
+        text_lower = text.lower()
+        validate_kw = ["ctd", "국제공통기술문서", "목차", "1부", "2부", "3부"]
+        if any(kw in text_lower for kw in validate_kw):
+            return "validate"
+
+    # 3단계: 확장자 기반
+    if path.endswith(".pdf"):
+        return "validate"  # 완성된 문서
+    if path.endswith((".xlsx", ".csv")):
+        return "generate"  # 원시 데이터
+
+    # 4단계: LLM 분석 (불확실한 경우만)
+    return llama_analyze(file_paths, texts)
+```
+
+### 3. RAG 기반 규정 검증
+
+**위치**: `ctdmate/tools/reg_rag.py`
+
+```python
+# ICH 규정 문서를 벡터 DB에 저장
+qdrant_client.upsert(
+    collection_name="ctd",
+    points=embedded_documents
+)
+
+# 업로드된 문서와 유사도 검색
+results = qdrant_client.search(
+    collection_name="ctd",
+    query_vector=embed(user_content),
+    limit=TOP_K
+)
+
+# 규정 위반 사항 판단
+violations = []
+for doc in user_docs:
+    if similarity < THRESHOLD:
+        violations.append(doc)
+```
+
+### 4. 모듈식 도구 시스템
+
+**위치**: `CTDAgent/registry.py`
+
+```python
+# 도구 등록
+TOOLS["parse_documents"] = parse_documents
+TOOL_SPEC["parse_documents"] = {
+    "args": {"file_paths": "list[str]"},
+    "desc": "Upstage API로 문서 파싱"
+}
+
+# 에이전트에서 자동 사용
+tool = TOOLS[tool_name]
+result = tool(args)
+```
+
+---
+
+## 📊 프로젝트 성과
+
+- ✨ ReAct 패턴 구현 
+- 🔗 RAG 시스템으로 정확도 향상
+- 🧩 모듈식 아키텍처로 확장성 확보
+- 🤖 자동 모드 감지로 UX 개선
+
+---
+
+## 📚 추가 문서
+
+- [상세 포트폴리오](PORTFOLIO.md) - 기술 구현 상세 설명
+- [시스템 구조](Architecture_final3.md) - 아키텍처 다이어그램
+
+---
+
+## 🤝 기여
+
+이 프로젝트는 교육 및 연구 목적으로 개발되었습니다.
+기여를 원하시면 이슈를 생성하거나 Pull Request를 보내주세요.
+
+---
+
+## 📄 라이선스
+
+Educational Use Only
+
+---
+
+## 🙏 감사의 말
+
+- **Upstage**: Document Parse API 및 Solar LLM 제공
+- **LangChain**: LLM 애플리케이션 프레임워크
+- **Meta**: Llama 3.2 모델
+- **Qdrant**: 벡터 데이터베이스
 
 ---
 

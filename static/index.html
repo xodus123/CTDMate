@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuRA - CTD Document Automation</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="title-group">
+                    <div class="main-logo-container">
+                        <img src="/static/logo.png" alt="DocuRA CTDMate" class="main-logo">
+                    </div>
+                    <p class="subtitle">DOCUMENT AUTOMATION AND REGULATORY AFFAIRS AGENT</p>
+                    <p class="subtitle-kr">제약바이오 인허가 문서 자동화 AGENT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="upload-section">
+            <h2 class="section-title">Upload Composition Files</h2>
+            <p class="section-description">Drop your Excel, CSV, or PDF files here to generate CTD documents</p>
+
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <p class="upload-text">Drag and drop files here</p>
+                <button class="browse-btn" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                <input type="file" id="fileInput" multiple accept=".pdf,.xlsx,.csv,.xls" style="display: none;">
+            </div>
+
+            <div id="fileList" class="file-list"></div>
+
+            <button class="generate-btn" id="generateBtn" disabled>Generate CTD Document</button>
+        </section>
+
+        <!-- Step 1: 진행상황 및 검증 페이지 -->
+        <div class="step-page" id="step1Page" style="display: none;">
+            <!-- 홈 버튼 -->
+            <div style="text-align: right; margin-bottom: 1rem;">
+                <button class="browse-btn" onclick="goHome()" style="background: #898533; padding: 0.5rem 1rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem; vertical-align: middle;">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    홈으로 돌아가기
+                </button>
+            </div>
+            <!-- 진행상황 섹션 -->
+            <section class="progress-section" id="progressSection">
+                <h2 class="section-title">Processing Progress</h2>
+                <div class="progress-container">
+                    <div class="progress-step" id="step-parse">
+                        <div class="step-icon">📄</div>
+                        <div class="step-content">
+                            <div class="step-title">File Parsing</div>
+                            <div class="step-status">Waiting...</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-parse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-step" id="step-validate">
+                        <div class="step-icon">✓</div>
+                        <div class="step-content">
+                            <div class="step-title">Document Validation</div>
+                            <div class="step-status">Waiting...</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-validate"></div>
+                            </div>
+                            <div class="validation-checklist" id="validation-checklist" style="display: none;">
+                                <ul class="check-list" id="validation-checks"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-step" id="step-generate">
+                        <div class="step-icon">📝</div>
+                        <div class="step-content">
+                            <div class="step-title">Content Generation</div>
+                            <div class="step-status">Waiting...</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-generate"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 확인 버튼 섹션 -->
+            <section class="confirm-section" id="confirmSection" style="display: none;">
+                <button class="confirm-btn" id="confirmBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                    확인 및 다음 단계로
+                </button>
+            </section>
+        </div>
+
+        <!-- Step 2: PDF 결과 페이지 -->
+        <div class="step-page" id="step2Page" style="display: none;">
+            <!-- 홈 버튼 -->
+            <div style="text-align: right; margin-bottom: 1rem;">
+                <button class="browse-btn" onclick="goHome()" style="background: #898533; padding: 0.5rem 1rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem; vertical-align: middle;">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    홈으로 돌아가기
+                </button>
+            </div>
+            <!-- PDF 미리보기 섹션 -->
+            <section class="pdf-section" id="pdfSection">
+                <h2 class="section-title">Generated Document</h2>
+                <div class="pdf-actions">
+                    <button class="action-btn preview-btn" id="previewBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        Preview PDF
+                    </button>
+                    <button class="action-btn download-btn" id="downloadBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download PDF
+                    </button>
+                </div>
+                <div class="pdf-preview" id="pdfPreview">
+                    <iframe id="pdfFrame" width="100%" height="600px" style="border: 1px solid #e2e8f0; border-radius: 8px;"></iframe>
+                </div>
+            </section>
+
+            <!-- 검증 결과 섹션 (검증 모드 전용) -->
+            <section class="validation-section" id="validationSection" style="display: none;">
+                <h2 class="section-title">Document Regulatory Validation</h2>
+                <div id="validationContent" class="validation-content"></div>
+            </section>
+        </div>
+
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p id="loadingText">Generating CTD document...</p>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
