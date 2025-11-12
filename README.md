@@ -9,10 +9,6 @@ ReAct AI 에이전트, RAG(검색증강생성), LLM을 결합하여 문서 작�
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.118+-green.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/License-Educational-yellow.svg)]()
 
-### 🎥 실행 데모
-[![CTDMate 데모](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/YOUR_VIDEO_ID)
-> 💡 **클릭하여 전체 데모 영상 보기** - Excel 업로드부터 CTD 문서 생성까지 전 과정
-
 ---
 
 ## 🚀 주요 기능
